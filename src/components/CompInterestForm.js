@@ -1,6 +1,5 @@
 import React from 'react'
 import { useState } from 'react'
-import CompInterestSolve from './CompInterestSolve.js'
 
 const CompInterestForm = props => {
 
@@ -8,19 +7,6 @@ const CompInterestForm = props => {
   const [interestRate, setInterestRate] = useState("")
   const [numYears, setNumYears] = useState("")
   const [interval, setInterval] = useState("yearly")
-  // const [finalAmount, setFinalAmount] = useState("")
-
-  const handleSubmit = e => {
-    e.preventDefault()
-
-    let finalAmount
-
-    if (interval === "yearly") {
-      finalAmount = (startingAmount * (1 + (interestRate * .01))**numYears)
-    } else {
-      finalAmount = (startingAmount * (1 + ((interestRate * .01) / 12))**(12 * numYears))
-    }
-  }
 
   const numberWithCommas = x => {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
@@ -41,7 +27,7 @@ const CompInterestForm = props => {
   return (
     <div>
       <h1 className="cool-font">Compound Interest Calculator</h1>
-      <form onSubmit={handleSubmit}>
+      <form>
           <label className="cool-font">
             Starting amount:&nbsp;$
             <input className="cool-font" type="text" size="18" value={startingAmount} onChange={(e) => setStartingAmount(e.target.value)} />
@@ -68,10 +54,6 @@ const CompInterestForm = props => {
               <option className="cool-font" value="monthly">monthly</option>
             </select>
           </label>
-          <br />
-          <br />
-          <br />
-        <input type="submit" value="Calculate" className="cool-button" />
       </form>
       
       {getFinalAmount() ? 
@@ -83,7 +65,6 @@ const CompInterestForm = props => {
         : 
         <></>
       }
-
     </div>
   )
 }
