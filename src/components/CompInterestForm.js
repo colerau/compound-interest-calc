@@ -9,7 +9,6 @@ const CompInterestForm = props => {
   const [interval, setInterval] = useState("yearly")
   const [finalAmount, setFinalAmount] = useState("")
 
-
   const handleSubmit = e => {
     e.preventDefault()
 
@@ -18,7 +17,6 @@ const CompInterestForm = props => {
     } else {
       setFinalAmount(startingAmount * (1 + ((interestRate * .01) / 12))**(12 * numYears))
     }
- 
   }
 
   const numberWithCommas = x => {
@@ -27,6 +25,7 @@ const CompInterestForm = props => {
 
   return (
     <div>
+      <h2>Compound Interest Calculator</h2>
       <form onSubmit={handleSubmit}>
         <label>
           Starting amount: $
@@ -41,7 +40,7 @@ const CompInterestForm = props => {
         <br />
         <label>
           Number of years: &nbsp;
-          <input type="text" size="5" value={numYears} onChange={(e) => setNumYears(e.target.value)} />
+          <input type="text" size="3" value={numYears} onChange={(e) => setNumYears(e.target.value)} />
         </label>
         <br />
         <label>
@@ -52,16 +51,15 @@ const CompInterestForm = props => {
           </select>
         </label>
         <br />
-        <input type="submit" />
+        <br />
+        <input type="submit" value="How much will I have?" />
       </form>
       
       {finalAmount ? 
         <>
         <br />
         <br />
-        <br />
-        <h3>{`If $${numberWithCommas(startingAmount)} were compounded ${interval},`}</h3>
-        <h1>{`in ${numYears} years, you would have $${numberWithCommas(Math.round(finalAmount * 100) / 100)}`}</h1>
+        <h1>{`You will have $${numberWithCommas(finalAmount.toFixed(2))}`}</h1>
         </>
         : 
         <></>
