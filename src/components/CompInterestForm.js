@@ -1,5 +1,6 @@
 import React from 'react'
 import { useState } from 'react'
+import CompInterestSolve from './CompInterestSolve.js'
 
 const CompInterestForm = props => {
 
@@ -7,20 +8,34 @@ const CompInterestForm = props => {
   const [interestRate, setInterestRate] = useState("")
   const [numYears, setNumYears] = useState("")
   const [interval, setInterval] = useState("yearly")
-  const [finalAmount, setFinalAmount] = useState("")
+  // const [finalAmount, setFinalAmount] = useState("")
 
   const handleSubmit = e => {
     e.preventDefault()
 
+    let finalAmount
+
     if (interval === "yearly") {
-      setFinalAmount(startingAmount * (1 + (interestRate * .01))**numYears)
+      finalAmount = (startingAmount * (1 + (interestRate * .01))**numYears)
     } else {
-      setFinalAmount(startingAmount * (1 + ((interestRate * .01) / 12))**(12 * numYears))
+      finalAmount = (startingAmount * (1 + ((interestRate * .01) / 12))**(12 * numYears))
     }
   }
 
   const numberWithCommas = x => {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  }
+
+  const getFinalAmount = () => {
+    let finalAmount = 0
+    if (startingAmount && interestRate && numYears && interval) {
+      if (interval === "yearly") {
+        finalAmount = (startingAmount * (1 + (interestRate * .01))**numYears)
+      } else {
+        finalAmount = (startingAmount * (1 + ((interestRate * .01) / 12))**(12 * numYears))
+      }
+    }
+    return finalAmount
   }
 
   return (
@@ -59,11 +74,11 @@ const CompInterestForm = props => {
         <input type="submit" value="Calculate" className="cool-button" />
       </form>
       
-      {finalAmount ? 
+      {getFinalAmount() ? 
         <>
         <br />
         <br />
-          <h1 className="cool-big-font">{`You will have $${numberWithCommas(finalAmount.toFixed(2))}`}</h1>
+          <h1 className="cool-big-font">{`You will have $${numberWithCommas(getFinalAmount().toFixed(2))}`}</h1>
         </>
         : 
         <></>
