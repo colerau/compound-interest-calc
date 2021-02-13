@@ -60,7 +60,9 @@ const CompInterestForm = props => {
         <>
         <br />
         <br />
-          <h1 className="cool-big-font">{`You will have $${numberWithCommas(getFinalAmount().toFixed(2))}`}</h1>
+          <h1>{`If $${numberWithCommas(startingAmount)} were compounded ${interval} for ${numYears} years, you would have...`}</h1>
+          <h1 className="cool-big-font">{`$${numberWithCommas(getFinalAmount().toFixed(2))}`}</h1>
+          <h1>{`That's an increase of $${numberWithCommas((getFinalAmount() - startingAmount).toFixed(2))}`}</h1>
         </>
         : 
         <></>
