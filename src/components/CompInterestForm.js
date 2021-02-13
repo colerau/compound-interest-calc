@@ -6,6 +6,7 @@ const CompInterestForm = props => {
   const [startingAmount, setStartingAmount] = useState("")
   const [interestRate, setInterestRate] = useState("")
   const [numYears, setNumYears] = useState("")
+  const [finalAmount, setFinalAmount] = useState("")
 
   const handleSubmit = e => {
     e.preventDefault()
@@ -13,8 +14,7 @@ const CompInterestForm = props => {
     // console.log(`submitted interest rate ${interestRate}`)
     // console.log(`submitted num years ${numYears}`)
 
-    let finalValue = startingAmount * (1 + (interestRate * .01))**numYears
-    console.log(`In ${numYears} years, you would have $${Math.round(finalValue * 100) / 100}`)
+    setFinalAmount(startingAmount * (1 + (interestRate * .01))**numYears)
   }
 
   return (
@@ -37,6 +37,13 @@ const CompInterestForm = props => {
         <br />
         <input type="submit" />
       </form>
+      
+      {finalAmount ? 
+        <h1>{`In ${numYears} years, you would have $${Math.round(finalAmount * 100) / 100}.`}</h1>
+        : 
+        <></>
+      }
+
     </div>
   )
 }
