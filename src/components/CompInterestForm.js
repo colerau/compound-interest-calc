@@ -30,22 +30,22 @@ const CompInterestForm = props => {
       <form onSubmit={handleSubmit}>
         <label>
           Starting amount: $
-          <input type="text" value={startingAmount} onChange={(e) => setStartingAmount(e.target.value)} />
+          <input type="text" size="18" value={startingAmount} onChange={(e) => setStartingAmount(e.target.value)} />
         </label>
         <br />
         <label>
           Interest rate: &nbsp;
-          <input type="text" value={interestRate} onChange={(e) => setInterestRate(e.target.value)} />
+          <input type="text" size="4" value={interestRate} onChange={(e) => setInterestRate(e.target.value)} />
           %
         </label>
         <br />
         <label>
           Number of years: &nbsp;
-          <input type="text" value={numYears} onChange={(e) => setNumYears(e.target.value)} />
+          <input type="text" size="5" value={numYears} onChange={(e) => setNumYears(e.target.value)} />
         </label>
         <br />
         <label>
-          Compounding interval: 
+          Compounding interval: &nbsp;
           <select value={interval} onChange={(e) => setInterval(e.target.value)}>
             <option value="yearly">yearly</option>
             <option value="monthly">monthly</option>
@@ -56,7 +56,13 @@ const CompInterestForm = props => {
       </form>
       
       {finalAmount ? 
-        <h1>{`In ${numYears} years, you would have $${numberWithCommas(Math.round(finalAmount * 100) / 100)}`}</h1>
+        <>
+        <br />
+        <br />
+        <br />
+        <h3>{`If $${numberWithCommas(startingAmount)} were compounded ${interval},`}</h3>
+        <h1>{`in ${numYears} years, you would have $${numberWithCommas(Math.round(finalAmount * 100) / 100)}`}</h1>
+        </>
         : 
         <></>
       }
