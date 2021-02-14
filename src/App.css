@@ -66,7 +66,12 @@
   text-decoration: none;
   font-family: 'Roboto', sans-serif;
   font-weight: 250;
-  font-size: 50px;
+  font-size: 75px;
+  color: forestgreen;
+}
+
+strong {
+  color: forestgreen;
 }
 
 @keyframes App-logo-spin {
