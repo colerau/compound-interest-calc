@@ -60,11 +60,12 @@ const CompInterestForm = props => {
         <>
         <br />
         <br />
+
         <div className="cool-font">
           <h2>
             If <strong>${numberWithCommas(startingAmount)}</strong> 
-            &nbsp;were compounded <strong>{interval}</strong> for <strong>{numYears}</strong> 
-            &nbsp;years, you would have...
+            &nbsp;were compounded <strong>{interval}</strong> for <strong>{numberWithCommas(numYears)}</strong> 
+            &nbsp;{numYears === "1" ? "year" : "years"}, you would have...
           </h2>
         </div>
     
