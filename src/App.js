@@ -14,16 +14,13 @@ function App() {
 
       <Router>
         <div>
-          <ul>
-            <li>
-              <Link to="/">Compound Interest Calculator</Link>
-            </li>
-            <li>
-              <Link to="/amortization-calculator">Amortization Calculator</Link>
-            </li>
-          </ul>
+          <div className="navBarLinks">
+            <Link to="/">Compound Interest Calculator</Link>
+            <br />
+            <Link to="/amortization-calculator">Amortization Calculator</Link>
+            <hr />
+          </div>
 
-          <hr />
 
           <Switch>
             <Route exact path="/">

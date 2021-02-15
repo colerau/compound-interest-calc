@@ -74,6 +74,10 @@ strong {
   color: forestgreen;
 }
 
+.navBarLinks {
+  background-color: lightgrey;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
