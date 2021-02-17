@@ -15,7 +15,6 @@ const AmortizationForm = props => {
     let finalAmount = 0
     // need to get interest rate per month as a decimal
     let correctedInterestRate = interestRate / 12 * 0.01
-    console.log("correctedInterestRate is", correctedInterestRate)
     let numMonths = numYears * 12
 
     if (loanAmount && interestRate && numYears) {
@@ -52,16 +51,14 @@ const AmortizationForm = props => {
         <br />
         <br />
 
-        {/* <div className="cool-font">
+        <div className="cool-font">
           <h2>
-            If <strong>${numberWithCommas(startingAmount)}</strong> 
-            &nbsp;were compounded <strong>{interval}</strong> at <strong>{interestRate}%</strong> for <strong>{numberWithCommas(numYears)}</strong> 
-            &nbsp;{numYears === "1" ? "year" : "years"}, you would have...
+            For a <span className="orange">{numYears}</span> year&nbsp;<span className="orange">${numberWithCommas(loanAmount)}</span> 
+            &nbsp;loan with a <span className="orange">{interestRate}%</span> interest rate, your fixed monthly payment would be...
           </h2>
-
-        </div> */}
+        </div>
     
-        <h1 className="cool-big-font">{`$${numberWithCommas(getFinalAmount().toFixed(2))}`}</h1>
+        <h1 className="cool-big-font"><span className="orange">{`$${numberWithCommas(getFinalAmount().toFixed(2))}`}</span></h1>
 
         {/* <div className="cool-font">
           <h2>That's an increase of&nbsp;
