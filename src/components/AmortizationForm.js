@@ -68,7 +68,7 @@ const AmortizationForm = props => {
 
         <button onClick={handleShowAmorSched}>Show Amortization Schedule</button>
 
-        {showAmorSched && <AmortizationSchedule />}
+        {showAmorSched && <AmortizationSchedule loanAmount={loanAmount} interestRate={interestRate} numYears={numYears} monthlyPayment={getFinalAmount()} />}
         </>
         : 
         <></>
