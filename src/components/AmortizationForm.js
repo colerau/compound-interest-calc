@@ -1,11 +1,13 @@
 import React from "react"
 import { useState } from "react"
+import AmortizationSchedule from "./AmortizationSchedule.js"
 
 const AmortizationForm = props => {
 
   const [loanAmount, setLoanAmount] = useState("")
   const [interestRate, setInterestRate] = useState("")
   const [numYears, setNumYears] = useState("")
+  const [showAmorSched, setShowAmorSched] = useState(false)
 
   const numberWithCommas = x => {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
@@ -21,6 +23,10 @@ const AmortizationForm = props => {
       finalAmount = loanAmount * (correctedInterestRate * (1 + correctedInterestRate)**numMonths) / ((1 + correctedInterestRate)**numMonths - 1)
     }
     return finalAmount
+  }
+
+  const handleShowAmorSched = () => {
+    setShowAmorSched(true)
   }
 
   return (
@@ -60,11 +66,9 @@ const AmortizationForm = props => {
     
         <h1 className="cool-big-font"><span className="orange">{`$${numberWithCommas(getFinalAmount().toFixed(2))}`}</span></h1>
 
-        {/* <div className="cool-font">
-          <h2>That's an increase of&nbsp;
-            <strong>${numberWithCommas((getFinalAmount() - startingAmount).toFixed(2))}</strong>
-          </h2>
-        </div> */}
+        <button onClick={handleShowAmorSched}>Show Amortization Schedule</button>
+
+        {showAmorSched && <AmortizationSchedule />}
         </>
         : 
         <></>
