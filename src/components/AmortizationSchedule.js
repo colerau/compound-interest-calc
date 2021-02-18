@@ -30,7 +30,7 @@ const AmortizationSchedule = props => {
     let object
 
   
-    for (let i = 1; i <= numYears * 12; i++) {
+    for (let i = 1; i <= (numYears * 12) - 1; i++) {
       interest = roundedBalance * correctedInterestRate
       roundedInterest = twoDecimals(interest)
 
@@ -56,6 +56,28 @@ const AmortizationSchedule = props => {
 
     }
 
+    finalBalance = roundedBalance
+    finalPaymentAmount = finalBalance
+
+    interest = roundedBalance * correctedInterestRate
+    roundedInterest = twoDecimals(interest)
+
+    principal = monthlyPayment - roundedInterest
+    roundedPrincipal = twoDecimals(principal)
+
+    // update rounded balance
+    roundedBalance = roundedBalance - finalPaymentAmount
+
+    object = {
+      paymentNumber: numYears * 12,
+      paymentAmount: finalPaymentAmount,
+      roundedInterest: roundedInterest,
+      roundedPrincipal: roundedPrincipal,
+      roundedBalance: twoDecimals(roundedBalance)
+    }
+
+    arrayOfObjects.push(object)
+
     return arrayOfObjects.map((obj, paymentNumber) => {
       return (
         <tr key={paymentNumber}>
@@ -68,16 +90,7 @@ const AmortizationSchedule = props => {
       )
     })
 
-    // finalBalance = roundedBalance
-    // finalPaymentAmount = finalBalance
 
-    // interest = roundedBalance * correctedInterestRate
-    // roundedInterest = twoDecimals(interest)
-
-    // principal = monthlyPayment - roundedInterest
-    // roundedPrincipal = twoDecimals(principal)
-
-    // roundedBalance = roundedBalance - finalPaymentAmount
 
     // console.log(`The last payment amount is ${finalPaymentAmount}`)
     // console.log(`The last Interest is ${roundedInterest}`)
