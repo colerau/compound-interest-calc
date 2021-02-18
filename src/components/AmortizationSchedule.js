@@ -105,7 +105,7 @@ const AmortizationSchedule = props => {
         <table>
           <tbody>
             <tr>
-              <th>Payment #</th>
+              <th>Payment No.</th>
               <th>Payment Amount</th>
               <th>Interest</th>
               <th>Principal</th>
