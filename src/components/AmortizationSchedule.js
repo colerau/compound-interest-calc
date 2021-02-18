@@ -88,11 +88,20 @@ const AmortizationSchedule = props => {
   return (
     <>
       <h1>Amortization Schedule</h1>
-      <table>
-        <tbody>
-          {createSched(loanAmount, correctedInterestRate, numYears, monthlyPayment)}
-        </tbody>
-      </table>
+      <center>
+        <table>
+          <tbody>
+            <tr>
+              <th>Payment #</th>
+              <th>Payment Amount</th>
+              <th>Interest</th>
+              <th>Principal</th>
+              <th>Balance</th>
+            </tr>
+            {createSched(loanAmount, correctedInterestRate, numYears, monthlyPayment)}
+          </tbody>
+        </table>
+      </center>
     </>
   )
 } 
