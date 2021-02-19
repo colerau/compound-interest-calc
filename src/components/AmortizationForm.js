@@ -64,7 +64,9 @@ const AmortizationForm = props => {
         <h1 className="cool-big-font"><span className="orange">{`$${numberWithCommas(Number.parseFloat(getFinalAmount()).toFixed(2))}`}</span></h1>
 
         <br />
-        
+        <br />
+        <br />
+
         {
         <AmortizationSchedule loanAmount={loanAmount} interestRate={interestRate} numYears={numYears} monthlyPayment={getFinalAmount()} />
         }
