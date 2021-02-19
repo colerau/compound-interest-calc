@@ -1,5 +1,6 @@
 import React from 'react'
 import { useState } from 'react'
+import numberWithCommas from '../helpers/numberWithCommas.js'
 
 const CompInterestForm = props => {
 
@@ -8,9 +9,9 @@ const CompInterestForm = props => {
   const [numYears, setNumYears] = useState("")
   const [interval, setInterval] = useState("yearly")
 
-  const numberWithCommas = x => {
-    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-  }
+  // const numberWithCommas = x => {
+  //   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  // }
 
   const getFinalAmount = () => {
     let finalAmount = 0

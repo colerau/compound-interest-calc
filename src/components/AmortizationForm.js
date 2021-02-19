@@ -1,6 +1,7 @@
 import React from "react"
 import { useState } from "react"
 import AmortizationSchedule from "./AmortizationSchedule.js"
+import numberWithCommas from '../helpers/numberWithCommas.js'
 
 const AmortizationForm = props => {
 
@@ -8,9 +9,9 @@ const AmortizationForm = props => {
   const [interestRate, setInterestRate] = useState("")
   const [numYears, setNumYears] = useState("")
 
-  const numberWithCommas = x => {
-    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-  }
+  // const numberWithCommas = x => {
+  //   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  // }
 
   const getFinalAmount = () => {
     let finalAmount = 0
