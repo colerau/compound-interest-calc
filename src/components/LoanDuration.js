@@ -61,10 +61,10 @@ const LoanDuration = props => {
           </h2>
     
           {/* display and format final amount */}
-          <h1 className="cool-big-font-2"><span className="orange">{numberWithCommas(Number.parseFloat(getFinalAmount()).toFixed(2))}</span> years or <span className="orange">{Math.ceil(getFinalAmount() / 12)}</span> months</h1>
+          <h1 className="cool-big-font-2"><span className="rosybrown">{numberWithCommas(Number.parseFloat(getFinalAmount()).toFixed(2))}</span> years or <span className="rosybrown">{Math.ceil(getFinalAmount() / 12)}</span> months</h1>
         
           <h2>
-            to pay off your <span className="orange">${numberWithCommas(loanAmount)}</span> loan
+            to pay off your <span className="rosybrown">${numberWithCommas(loanAmount)}</span> loan
           </h2>
         </div>
         </>
