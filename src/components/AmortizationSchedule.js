@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React from "react"
 import numberWithCommas from '../helpers/numberWithCommas.js'
 
 const AmortizationSchedule = props => {
@@ -12,16 +12,11 @@ const AmortizationSchedule = props => {
     return Number.parseFloat(num).toFixed(2)
   }
 
-  // const numberWithCommas = x => {
-  //   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-  // }
-
   const createSched = (loanAmount, correctedInterestRate, numYears, monthlyPayment) => {
     let roundedMonthlyPayment = twoDecimals(monthlyPayment)
 
     let balance = loanAmount
     let roundedBalance = twoDecimals(balance)
-    let finalBalance
 
     let interest
     let roundedInterest

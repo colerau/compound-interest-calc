@@ -9,10 +9,6 @@ const AmortizationForm = props => {
   const [interestRate, setInterestRate] = useState("")
   const [numYears, setNumYears] = useState("")
 
-  // const numberWithCommas = x => {
-  //   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-  // }
-
   const getFinalAmount = () => {
     let finalAmount = 0
     // need to get interest rate per month as a decimal

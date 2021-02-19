@@ -9,10 +9,6 @@ const CompInterestForm = props => {
   const [numYears, setNumYears] = useState("")
   const [interval, setInterval] = useState("yearly")
 
-  // const numberWithCommas = x => {
-  //   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-  // }
-
   const getFinalAmount = () => {
     let finalAmount = 0
     if (startingAmount && interestRate && numYears && interval) {
