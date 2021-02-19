@@ -7,7 +7,6 @@ const AmortizationForm = props => {
   const [loanAmount, setLoanAmount] = useState("")
   const [interestRate, setInterestRate] = useState("")
   const [numYears, setNumYears] = useState("")
-  const [showAmorSched, setShowAmorSched] = useState(false)
 
   const numberWithCommas = x => {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");

@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React from "react"
 
 const AmortizationSchedule = props => {
   let {loanAmount, interestRate, numYears, monthlyPayment} = props
@@ -17,6 +17,7 @@ const AmortizationSchedule = props => {
 
   const createSched = (loanAmount, correctedInterestRate, numYears, monthlyPayment) => {
     let roundedMonthlyPayment = twoDecimals(monthlyPayment)
+    
     let balance = loanAmount
     let roundedBalance = twoDecimals(balance)
     let finalBalance
@@ -44,10 +45,6 @@ const AmortizationSchedule = props => {
       balance = balance - roundedPrincipal
       roundedBalance = twoDecimals(balance)
 
-      // console.log(`The Interest for Payment ${i} is ${roundedInterest}`)
-      // console.log(`The Principal for Payment ${i} is ${roundedPrincipal}`)
-      // console.log(`The Balance for Payment ${i} is ${roundedBalance}`)
-
       object = {
         paymentNumber: i,
         paymentAmount: roundedMonthlyPayment,
@@ -57,7 +54,6 @@ const AmortizationSchedule = props => {
       }
 
       arrayOfObjects.push(object)
-
     }
 
     finalBalance = roundedBalance
@@ -93,13 +89,6 @@ const AmortizationSchedule = props => {
         </tr>
       )
     })
-
-
-
-    // console.log(`The last payment amount is ${finalPaymentAmount}`)
-    // console.log(`The last Interest is ${roundedInterest}`)
-    // console.log(`The last Principal is ${roundedPrincipal}`)
-    // console.log(`The final Balance is ${roundedBalance}`)
   }
 
   return (
