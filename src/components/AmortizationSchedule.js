@@ -55,19 +55,22 @@ const AmortizationSchedule = props => {
       }
 
       arrayOfObjects.push(object)
+
     }
 
-    finalBalance = roundedBalance
-    finalPaymentAmount = finalBalance
-
+    // get final interest
     interest = roundedBalance * correctedInterestRate
     roundedInterest = twoDecimals(interest)
 
-    principal = monthlyPayment - roundedInterest
+    // get final principal
+    principal = roundedBalance
     roundedPrincipal = twoDecimals(principal)
 
+    // get final payment amount
+    finalPaymentAmount = twoDecimals(Number.parseFloat(roundedPrincipal) + Number.parseFloat(roundedInterest))
+
     // update rounded balance
-    roundedBalance = roundedBalance - finalPaymentAmount
+    roundedBalance = roundedBalance - roundedPrincipal
 
     object = {
       paymentNumber: numYears * 12,
