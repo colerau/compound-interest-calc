@@ -25,30 +25,26 @@ const AmortizationForm = props => {
     return finalAmount
   }
 
-  const handleShowAmorSched = () => {
-    setShowAmorSched(true)
-  }
-
   return (
     <div>
       <h1 className="cool-font">Amortization Calculator</h1>
       <form>
         <label className="cool-font">
           Loan amount:&nbsp;$
-          <input className="cool-font" type="text" size="18" value={loanAmount} onChange={(e) => setLoanAmount(e.target.value)} />
+          <input className="cool-font" type="text" size="19" maxLength="18" value={loanAmount} onChange={(e) => setLoanAmount(e.target.value)} />
         </label>
         <br />
         <br />
         <label className="cool-font">
           Interest rate:&nbsp;
-          <input className="cool-font" type="text" size="6" value={interestRate} onChange={(e) => setInterestRate(e.target.value)} />
+          <input className="cool-font" type="text" size="6" maxLength="6" value={interestRate} onChange={(e) => setInterestRate(e.target.value)} />
           %
         </label>
         <br />
         <br />
         <label className="cool-font">
           Number of years:&nbsp;
-          <input className="cool-font" type="text" size="5" value={numYears} onChange={(e) => setNumYears(e.target.value)} />
+          <input className="cool-font" type="text" size="2" maxLength="2" value={numYears} onChange={(e) => setNumYears(e.target.value)} />
         </label>
       </form>
       
@@ -67,9 +63,9 @@ const AmortizationForm = props => {
         {/* display and format final amount */}
         <h1 className="cool-big-font"><span className="orange">{`$${numberWithCommas(Number.parseFloat(getFinalAmount()).toFixed(2))}`}</span></h1>
 
-        <button onClick={handleShowAmorSched}>Show Amortization Schedule</button>
-
-        {showAmorSched && <AmortizationSchedule loanAmount={loanAmount} interestRate={interestRate} numYears={numYears} monthlyPayment={getFinalAmount()} />}
+        {
+        <AmortizationSchedule loanAmount={loanAmount} interestRate={interestRate} numYears={numYears} monthlyPayment={getFinalAmount()} />
+        }
         </>
         : 
         <></>

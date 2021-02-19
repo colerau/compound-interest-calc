@@ -30,20 +30,20 @@ const CompInterestForm = props => {
       <form>
           <label className="cool-font">
             Starting amount:&nbsp;$
-            <input className="cool-font" type="text" size="18" value={startingAmount} onChange={(e) => setStartingAmount(e.target.value)} />
+            <input className="cool-font" type="text" size="19" maxLength="18" value={startingAmount} onChange={(e) => setStartingAmount(e.target.value)} />
           </label>
           <br />
           <br />
           <label className="cool-font">
             Interest rate:&nbsp;
-            <input className="cool-font" type="text" size="6" value={interestRate} onChange={(e) => setInterestRate(e.target.value)} />
+            <input className="cool-font" type="text" size="6" maxLength="6" value={interestRate} onChange={(e) => setInterestRate(e.target.value)} />
             %
           </label>
           <br />
           <br />
           <label className="cool-font">
             Number of years:&nbsp;
-            <input className="cool-font" type="text" size="5" value={numYears} onChange={(e) => setNumYears(e.target.value)} />
+            <input className="cool-font" type="text" size="2" maxLength="2" value={numYears} onChange={(e) => setNumYears(e.target.value)} />
           </label>
           <br />
           <br />
