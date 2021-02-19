@@ -82,6 +82,30 @@ strong {
   color: orange;
 }
 
+#amor-table {
+  text-align: center;
+  border-collapse: collapse;
+  border: 3px solid #ddd;
+  width: 100%;
+}
+
+#amor-table td, #amor-table th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#amor-table tr:nth-child(even){background-color: #f2f2f2;}
+
+#amor-table tr:hover {background-color: orange;}
+
+#amor-table th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: center;
+  background-color: orange;
+  color: white;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
