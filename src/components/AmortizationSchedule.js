@@ -11,6 +11,10 @@ const AmortizationSchedule = props => {
     return Number.parseFloat(num).toFixed(2)
   }
 
+  const numberWithCommas = x => {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  }
+
   const createSched = (loanAmount, correctedInterestRate, numYears, monthlyPayment) => {
     let roundedMonthlyPayment = twoDecimals(monthlyPayment)
     let balance = loanAmount
@@ -81,11 +85,11 @@ const AmortizationSchedule = props => {
     return arrayOfObjects.map((obj, paymentNumber) => {
       return (
         <tr key={paymentNumber}>
-          <td>{obj.paymentNumber}</td>
-          <td>{obj.paymentAmount}</td>
-          <td>{obj.roundedInterest}</td>
-          <td>{obj.roundedPrincipal}</td>
-          <td>{obj.roundedBalance}</td>
+          <td>{numberWithCommas(obj.paymentNumber)}</td>
+          <td>${numberWithCommas(obj.paymentAmount)}</td>
+          <td>${numberWithCommas(obj.roundedInterest)}</td>
+          <td>${numberWithCommas(obj.roundedPrincipal)}</td>
+          <td>${numberWithCommas(obj.roundedBalance)}</td>
         </tr>
       )
     })
@@ -100,7 +104,7 @@ const AmortizationSchedule = props => {
 
   return (
     <>
-      <h1>Amortization Schedule</h1>
+      <h1 className="cool-font">Amortization Schedule</h1>
         <table id="amor-table">
           <tbody>
             <tr>

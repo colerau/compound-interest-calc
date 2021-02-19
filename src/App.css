@@ -96,7 +96,7 @@ strong {
 
 #amor-table tr:nth-child(even){background-color: #f2f2f2;}
 
-#amor-table tr:hover {background-color: orange;}
+#amor-table tr:hover {background-color: #fed8b1;}
 
 #amor-table th {
   padding-top: 12px;
