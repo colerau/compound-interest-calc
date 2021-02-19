@@ -112,7 +112,7 @@ const AmortizationSchedule = props => {
               <th>Payment Amount</th>
               <th>Interest</th>
               <th>Principal</th>
-              <th>Balance</th>
+              <th>Loan Remaining</th>
             </tr>
             {createSched(loanAmount, correctedInterestRate, numYears, monthlyPayment)}
           </tbody>
