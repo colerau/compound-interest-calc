@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import numberWithCommas from '../helpers/numberWithCommas.js'
 
 const AmortizationSchedule = props => {
