@@ -23,6 +23,12 @@ const CompInterestForm = props => {
 
   return (
     <div>
+      <title>
+        Compound Interest Calculator
+      </title>
+
+      <meta name="Description" content="Calculate the compound interest" />
+
       <h1 className="cool-font">Compound Interest Calculator</h1>
       <form>
           <label className="cool-font">

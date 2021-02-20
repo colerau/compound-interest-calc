@@ -11,6 +11,11 @@ import AmortizationForm from './components/AmortizationForm.js'
 function App() {
   return (
     <div className="App">
+      <title>
+        Compound Interest and Amortization Calculator
+      </title>
+
+      <meta name="Description" content="Calculate the compound interest accrued on an investment. Or generate an amortization schedule." />
 
       <Router>
         <div>

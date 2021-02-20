@@ -23,6 +23,12 @@ const AmortizationForm = props => {
 
   return (
     <div>
+      <title>
+        Amortization Calculator
+      </title>
+
+      <meta name="Description" content="Generate an amortization schedule" />
+
       <h1 className="cool-font">Amortization Calculator</h1>
       <form>
         <label className="cool-font">
