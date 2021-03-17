@@ -1,8 +1,7 @@
-import React from 'react'
-import { useState } from 'react'
+import React, { useState } from 'react'
 import numberWithCommas from '../helpers/numberWithCommas.js'
 
-const CompInterestForm = props => {
+const CompInterestForm = () => {
 
   const [startingAmount, setStartingAmount] = useState("")
   const [interestRate, setInterestRate] = useState("")
@@ -59,7 +58,8 @@ const CompInterestForm = props => {
           </label>
       </form>
       
-      {getFinalAmount() ? 
+      {getFinalAmount() 
+        ? 
         <>
         <br />
         <br />
